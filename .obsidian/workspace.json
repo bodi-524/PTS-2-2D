@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "889e9d6874647a28",
+        "id": "2b0690e14bcd25b3",
         "type": "tabs",
         "children": [
           {
-            "id": "1f3876d2fbad1634",
+            "id": "0947c90f94f77e5a",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Docs/MacroDesignDocumentBravo.pdf"
+                "file": "README.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "MacroDesignDocumentBravo"
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ]
@@ -92,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Docs/MacroDesignDocumentBravo.pdf",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for MacroDesignDocumentBravo"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -111,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Docs/MacroDesignDocumentBravo.pdf",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from MacroDesignDocumentBravo"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -140,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docs/MacroDesignDocumentBravo.pdf",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of MacroDesignDocumentBravo"
+              "title": "Outline of README"
             }
           }
         ]
@@ -166,11 +168,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1f3876d2fbad1634",
+  "active": "0947c90f94f77e5a",
   "lastOpenFiles": [
+    "Docs/DevLog_Bravo/User Interface.md",
     "README.md",
-    "pdf.md",
+    "Docs/MacroDesignDocumentBravo.md",
     "Docs/MacroDesignDocumentBravo.pdf",
-    "Docs/DevLog_Bravo/User Interface.md"
+    "pdf.md"
   ]
 }
