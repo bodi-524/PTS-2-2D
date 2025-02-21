@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "0865c00d73bcc69e",
+    "type": "split",
+    "children": [
+      {
+        "id": "889e9d6874647a28",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1f3876d2fbad1634",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Docs/MacroDesignDocumentBravo.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "MacroDesignDocumentBravo"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "72d8c4743cd4e667",
+    "type": "split",
+    "children": [
+      {
+        "id": "c78829c6c36c7477",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e657f9b8180ac30f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "878ab4958f605e3e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "13bff548ad66d4e1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "57ed32d6cc00a69b",
+    "type": "split",
+    "children": [
+      {
+        "id": "3be236b48d74db17",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "585eba3254ee83e0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Docs/MacroDesignDocumentBravo.pdf",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for MacroDesignDocumentBravo"
+            }
+          },
+          {
+            "id": "e6f9359b2c7c05c5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Docs/MacroDesignDocumentBravo.pdf",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from MacroDesignDocumentBravo"
+            }
+          },
+          {
+            "id": "f9eae08959f10d06",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e174acfea109105e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Docs/MacroDesignDocumentBravo.pdf",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of MacroDesignDocumentBravo"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "1f3876d2fbad1634",
+  "lastOpenFiles": [
+    "README.md",
+    "pdf.md",
+    "Docs/MacroDesignDocumentBravo.pdf",
+    "Docs/DevLog_Bravo/User Interface.md"
+  ]
+}
