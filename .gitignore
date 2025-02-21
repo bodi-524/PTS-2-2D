@@ -47,7 +47,7 @@ ExportedObj/
 *.opendb
 *.VC.db
 # Obsidian Files
-# *.obsidian
+*.obsidian
 
 # Unity3D generated meta files
 *.pidb.meta
