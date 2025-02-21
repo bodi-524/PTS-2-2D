@@ -8,6 +8,8 @@ Anyways, I designed some basic options, firstly on paper, and then a sort of det
 Getting hold of the palette from Lospec, the creator [Toby_Yasha](https://lospec.com/palette-list/ty-monster-dungeons-16) 
 
 [Pasted image 20250221164934](Docs/DevLog_Bravo/Misc/Pasted%20image%2020250221164934.png)
+[Pasted image 20250221164934](Misc/Pasted%20image%2020250221164934.png)
+
 I used it as a base for creating the UI, which are as below. Though the assets will be different and will have a medieval feel. But for prototyping, i think they are good enough.
 
 Option A 

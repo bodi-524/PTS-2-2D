@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Docs/DevLog_Bravo/User Interface.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "User Interface"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Docs/DevLog_Bravo/User Interface.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for User Interface"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Docs/DevLog_Bravo/User Interface.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              "title": "Outgoing links from User Interface"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "Docs/DevLog_Bravo/User Interface.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of User Interface"
             }
           }
         ]
@@ -170,10 +170,10 @@
   },
   "active": "0947c90f94f77e5a",
   "lastOpenFiles": [
+    "README.md",
     "Docs/DevLog_Bravo/User Interface.md",
     "Misc/Pasted image 20250221164934.png.md",
     "Misc",
-    "README.md",
     "Docs/MacroDesignDocumentBravo.pdf",
     "Docs/User Interface.md",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250221164934.png",
