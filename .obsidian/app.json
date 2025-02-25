@@ -2,6 +2,9 @@
   "useMarkdownLinks": true,
   "newLinkFormat": "relative",
   "userIgnoreFilters": [
-    "Core_game/"
-  ]
+    "Core_game/",
+    "Bravo/"
+  ],
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "Docs/DevLog_Bravo/Misc"
 }
