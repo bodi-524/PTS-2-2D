@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Ink.Runtime;
 
-public class DialogueEvents : MonoBehaviour
+public class DialogueEvents
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Event for when dialogue starts
+    public event Action<string> onEnterDialogue;
+    public void EnterDialogue(string knotName) => onEnterDialogue?.Invoke(knotName);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Event for displaying dialogue text and choices
+    public event Action<string, List<Choice>> onDisplayDialogue;
+    public void DisplayDialogue(string text, List<Choice> choices) => onDisplayDialogue?.Invoke(text, choices);
+
+    // Event for when dialogue starts
+    public event Action onDialogueStarted;
+    public void DialogueStarted() => onDialogueStarted?.Invoke();
+
+    // Event for when dialogue ends
+    public event Action onDialogueFinished;
+    public void DialogueFinished() => onDialogueFinished?.Invoke();
 }

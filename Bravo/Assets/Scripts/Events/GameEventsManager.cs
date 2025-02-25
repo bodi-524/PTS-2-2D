@@ -3,29 +3,28 @@ using UnityEngine;
 
 public class GameEventsManager : MonoBehaviour
 {
+    //Singleton instance
     public static GameEventsManager instance { get; private set; }
 
-    // public InputEvents inputEvents;
-    // public PlayerEvents playerEvents;
-    // public GoldEvents goldEvents;
-    // public MiscEvents miscEvents;
-    // public QuestEvents questEvents;
+// Event classes
     public DialogueEvents dialogueEvents;
+    public InputEvents inputEvents;
+    public PlayerEvents playerEvents;
+    public QuestEvents questEvents;
 
     private void Awake()
     {
+        //To ensure that there is only one instance of the Game Events Manager
         if (instance != null)
         {
             Debug.LogError("Found more than one Game Events Manager in the scene.");
         }
         instance = this;
 
-        // initialize all events
-        // inputEvents = new InputEvents();
-        // playerEvents = new PlayerEvents();
-        // goldEvents = new GoldEvents();
-        // miscEvents = new MiscEvents();
-        // questEvents = new QuestEvents();
+        // Initialize event classes
         dialogueEvents = new DialogueEvents();
+        inputEvents = new InputEvents();
+        playerEvents = new PlayerEvents();
+        questEvents = new QuestEvents();
     }
 }
