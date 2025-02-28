@@ -21,4 +21,8 @@ public class DialogueEvents
     // Event for when dialogue ends
     public event Action onDialogueFinished;
     public void DialogueFinished() => onDialogueFinished?.Invoke();
+
+    public event Action<int> onMakeChoice; // Event for when a choice is made
+    public void MakeChoice(int choiceIndex) => onMakeChoice?.Invoke(choiceIndex);
+
 }

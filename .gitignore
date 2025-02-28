@@ -54,6 +54,9 @@ ExportedObj/
 #Ink Files
 /*/[Aa]ssets/Ink/*
 
+#TMP
+/*/[Aa]ssets/TextMesh Pro/*
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta

@@ -55,7 +55,6 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueDialogue()
     {
-        // Continue the story and display the next line of dialogue
         if (story.canContinue)
         {
             string dialogueLine = story.Continue();
@@ -78,6 +77,12 @@ public class DialogueManager : MonoBehaviour
         {
             ExitDialogue();
         }
+    }
+
+    public void MakeChoice(int choiceIndex)
+    {
+        story.ChooseChoiceIndex(choiceIndex); // Choose the selected option
+        ContinueDialogue(); // Continue the dialogue
     }
 
     private void ExitDialogue()
