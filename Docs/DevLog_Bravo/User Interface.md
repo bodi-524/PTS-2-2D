@@ -1,5 +1,5 @@
 
-21 February 2025
+
 Designed the User Interface on Lunacy, and by God it is such a . . Its free.
 It crashed 6 times, but the progress was not lost. I lost my access to Premium version of figma which i got from student developer pack along with Github essentials. 
 

@@ -2,7 +2,7 @@
 
 We start with setting up a basic 2D Built in render pipeline for 2022LTS and start with setting up the Directories in the asset. (the GitHub version control has already been set up so not going much into it.)
 
-Based on [Tutorial notes](Misc/Tutorial%20notes.md) from rainman. 
+Based on [Tutorial notes](Misc/Tutorial%20notes.md) from rainman. There are many things that differ from the project by rainman one of the most important would be quests, rainman uses spatial triggers and item dependencies for quests. We wont doing that here, atleast not in the proto. 
 We will be using Event Driven Architecture. 
 This is the initial structure of the code base, just a preliminary design with some scripts is given as below. 
 
