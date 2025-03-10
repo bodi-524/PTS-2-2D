@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docs/DevLog_Bravo/Code - Phase 2.md",
+                "file": "Docs/DevLog_Bravo/Code - Phase 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Code - Phase 2"
+              "title": "Code - Phase 1"
+            }
+          },
+          {
+            "id": "791e7ba1a794da89",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Docs/DevLog_Bravo/Story.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Story"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -168,8 +183,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1dbc83741948bdcb",
+  "active": "791e7ba1a794da89",
   "lastOpenFiles": [
+    "Docs/DevLog_Bravo/Misc/Pasted image 20250305155028.png",
+    "Docs/DevLog_Bravo/Misc/Pasted image 20250305154935.png",
+    "Docs/DevLog_Bravo/Code - Phase 1.md",
+    "Docs/DevLog_Bravo/Story.md",
+    "README.md",
+    "Docs/DevLog_Bravo/Code - Phase 2.md",
     "Docs/DevLog_Bravo/Misc/Always-be-kind-to-the-ducks-because-they-will-have-the-last-quack.jpg",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250302204606.png",
     "Bravo/UserSettings/Layouts/CurrentMaximizeLayout.dwlt",
@@ -177,9 +198,6 @@
     "Bravo/Temp/UnityTempFile-9ac8c6ff8e167434ba38db488a881ee1",
     "Docs/MacroDesignDocumentBravo.pdf",
     "Docs/DevLog_Bravo/User Interface.md",
-    "Docs/DevLog_Bravo/Code - Phase 2.md",
-    "Docs/DevLog_Bravo/Code - Phase 1.md",
-    "README.md",
     "Bravo/Temp/UnityTempFile-999d1fa721a4b45409e5cc3cdf6660f0",
     "Bravo/Temp/UnityTempFile-552d60c4d4169db4e889febf64591027",
     "Bravo/Temp/ADB-Refresh8cf5b904d50033741982d180de353517",
@@ -193,9 +211,7 @@
     "Bravo/Assets/Images/Space_Background2.png",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250225202449.png",
     "Docs/DevLog_Bravo/Misc/execOrder.png",
-    "Docs/DevLog_Bravo/Misc/Pasted image 20250225180613.png",
     "Bravo/Assets/Ink/CHANGELOG.md",
-    "Bravo/Assets/Ink/Editor/Tools/Startup Window/Resources/InkLogoIcon.png",
     "Docs/DevLog_Bravo/Misc/Tutorial notes.md",
     "Misc/Pasted image 20250221164934.png.md",
     "Docs/User Interface.md",
