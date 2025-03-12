@@ -72,3 +72,11 @@ I intend to utilize this approach for the next steps in the development.
 
 Decided to have the morality and personality traits to use![](Misc/Pasted%20image%2020250305155028.png)https://pixabay.com
 For royalty free images, music.
+
+The approach has changed, its 11-03-2025.
+Some big changes were made. The decision to use function and variables inside has been discarded. I will be declaring them in C# and then use the event system to update them whenever we change them. To be more precise, a function call will be done in the ink script and that would generate an event which will call the function and then it will be updated in c#. 
+Been thinking about discarding the Quest system, since it is illogical for a linear story, i mean i can use it for a quest progress bar and a quest list. But should i, not in the proto anyways.
+A bit of UI revamp would be needed, still thinking about how to implement the Fight algorithm. Lately, an idea of using hardcoded choice based fight system seems to be a good option. 
+I would just have to code up a choice based knot and make conditionals based on variables or whatever. OR maybe i should code a script for a more generalized. 
+Proto will be skipping that and moving along with the story. 
+

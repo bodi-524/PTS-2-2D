@@ -1,6 +1,6 @@
 /*-----------------------------------------------
 The second script of the proto version
-Last edited : 09-03-2025
+Last edited : 11-03-2025
 It is the starting point of story; Where it all began
 -----------------------------------------------*/
 
@@ -17,7 +17,7 @@ VAR clothes = ""
 ~location = "Some dark place"
 TODO: Need to paraphrase to give a more fantasy feel
 You wake up surrounded by filth and husk, 
-there is a particular animal musk, a darkness surrounding you restricts your vision. 
+there is a particular animal musk, a darkness surrounding you, it restricts your vision. 
 There are torches hanging on a central pillar of what seems to be a <color=\#aa1234> small barn </color>.
 You turn your gaze downwards and see you are wearing 
 * I am wearing a dirty robe that covers my body, some cheap-looking bracelets & rings with worn-out gems.
@@ -40,7 +40,7 @@ You turn your gaze downwards and see you are wearing
 -> barn_stint_son
 
 =barn_stint_son
-~location = "Barn"
+~ SetLocation("Barn")
 You sit down to look around the barn, you are just wearing boots and <>{clothes}
 What do you do next ?
 * Get up and explore the dark and unknown area
@@ -50,7 +50,7 @@ What do you do next ?
     -> dora_da_explora
     
 * Call for help, see if someone responds
-    ~ adjust_pair(courage, caution, -1)
+    ~ AdjustCaution(1)
     <i> Caution increased </i>
     You wait for some time, but no one shows up.
     "Guess its too early"
@@ -67,19 +67,19 @@ You see there are multiple animals in the barn, from horses to cows. A peculiar 
 When you reach the corner of the barn, you see a white calf lying on the ground, shaking and crying for help. Another cow going restless in the next enclosure. Presumably its mother.
 What do you do next ?
     * Try to save the calf. It seems the cold has seeped into the calf and its suffering from frostbite.{i_wanna_build_a_mage: I cover it with my robe} {i_wanna_build_a_wtf: I use my naked body to wrap myself around the calf} 
-        ~ adjust_pair(compassion, insensitivity, 1)
+        ~ AdjustCompassion(1)
         <i> Compassion increased </i>
     -> imma_barbie_girl
     
     * Ignore the calf, start humming 'Furr' by 'pink guy'. "PETA on my dick, PETA on my dick. . ."
-        ~ adjust_pair(compassion, insensitivity, -1)
+        ~ AdjustInsensitivity(1)
         <i> Insensitivity increased </i>
     -> imma_barbie_girl
     
     * Kick the calf. 
     "Your voice is annoying, be quiet!"
     The calf's cries more loudly, with pain.
-    ~ adjust_pair(compassion, insensitivity, -2)
+    ~ AdjustInsensitivity(2)
         <i> Insensitivity increased </i>
     - - You hear rattling of enclosures, and a loud clank. You turn around to see, its a rampaging bull, running towards you. You succesfully dodge the bull's assault. 
     What will you do next ?
@@ -101,7 +101,7 @@ What do you do next ?
     
     * * Run towards the bull enclosure and lock it.
         - - - You walk inside the bull enclosure and securely lock it. After catching your breath, you jump out of it and get out of that section of barn and lock it down.
-            ~ adjust_pair(courage, caution, 1)
+            ~ AdjustCourage(1)
             <i> Courage increased </i>
         * * * "Phew! That was scary"
         ->imma_barbie_girl
@@ -131,19 +131,17 @@ You move toward the window, peering outside to take in the view.
     The implementation for this is pending, so you will move to the next stage automatically. And inconveneince is deeply regretted.
     ->imma_barbie_girl
 
-
-
 =help_me_waifu_1
 You see the figure of a maiden approach. She has blonde hair covering her coral blue eyes. Here complexion is white as that of an angel. But her body is frail, she has dark circles around her eyes. You wonder if she is a helper at this place.
 - You try to get her attention in the most meek way possible. Appearing small,non-threatening, bowing as low as possible with hands held high. 
-    * "Hello there. . ."
-    ->help_me_waifu_2
-    * You scan the woman's figure top to down "Mmmm.. Mmmm.. MMMM!.. (shaking your head left to right with closed eyes) "Marvellous"
+* "Hello there. . ."
+->help_me_waifu_2
+* You scan the woman's figure top to down "Mmmm.. Mmmm.. MMMM!.. (shaking your head left to right with closed eyes) "Marvellous"
+
     - - The woman instinctively wraps her arms around her breasts, trying to hide them from your prying perverted gaze.
     * * "Forgive me my lady" - I get down on one knee with my head bowed down.
-    
     ->help_me_waifu_2
-    * ... \(wait for her to react)
+    * * . . . \(wait for her to react)
     ->help_me_waifu_2
     
 = help_me_waifu_2
@@ -152,20 +150,20 @@ You realize her intentions, and back away from her,  giving her some space, so s
 You try to sudbue her fears by the best smile you can muster, and signalling that you am not some lunatic. During your act and posturing, you slip over some horse shit and fall down on your face. You hear a faint giggling while you get back up. 
 The blonde girl approaches me, and offers me a rag to wipe off the shit. You accept it, and says "Thanks"
 - She helps you get up, and asks 
-    "Who are you, and why are you in my family's barn."
+"Who are you, and why are you in my family's barn."
 How do you reply ?
 * Absurd lie
 I, CATO SICKARIUS AM THE KNIGHT-CHAMPION OF MC-RAGE.
     - - "But all the holy knights perished in the holy avengement war. {i_wanna_build_a_wtf: why are you naked Sir}"
-     * * "Ahem! No M'lady, I am not a knight of your puny kingdom, I am from the capital world of the stellar realm of Ultra-Mars, Mc-Rage!"
-        ~ adjust_pair(deception, honesty, 2)
-        <i> Deception increased </i>
+    * * "Ahem! No M'lady, I am not a knight of your puny kingdom, I am from the capital world of the stellar realm of Ultra-Mars, Mc-Rage!"
+    ~ AdjustDeception(2)
+    <i> Deception increased </i>
         - - -"That sounds made up."- Blonde girl says being suspicious.
         * * * "Hahaha, i was testing you. Of course its made up"
         ->Truth_seeker
         
 * Truth
-~ adjust_pair(honesty, deception, 1)
+~ AdjustHonesty(1)
 <i> Honesty increased </i>
 ->Truth_seeker
 
@@ -174,14 +172,14 @@ I, CATO SICKARIUS AM THE KNIGHT-CHAMPION OF MC-RAGE.
     * * "Did you fart m'lady?"
         - - - "huh.." - Blonde girl with a poker face and a confused look.
         * * * "Cause you blew me away"
-        <i> Rizz increased (it has no implication in the game though lmao) </i>
+        <i> Rizz increased (it has no implication in the game though lmao. And this is pathetic game) </i>
             - - - - " I am sorry sir, i don't understand what you wish to imply " - Blonde girl replies and starts to turn around and walk away.
             * * * * Wait M'lady, that a sort of humourous retort, please forgive me
-            ~ adjust_pair(deception, honesty, 1)
+            ~ AdjustDeception(1)
             <i> Deception increased </i>
             ->Truth_seeker
             * * * * My apologies M'lady, that was just me admiring and appraising your God given looks, i beg for forgiveness to have offended you.
-            ~ adjust_pair(deception, honesty, -1)
+            ~ AdjustHonesty(1)
             <i> Honesty increased </i>
             ->Truth_seeker
 
@@ -216,23 +214,23 @@ You ask her about her.
 "Who are you ...?"
 - "This property is owned by house Ella and I am Rednic Ella the first daughter of the house Ella. You can call me Miss. Rednic if you may, madam seems a bit too formal for my taste" - Miss Rednic replies with a faint smile.
 *  You think that there is more you wish to know about her, but this much is good enough for now, any more would creep her out.
-    ~ adjust_pair(compassion, insensitivity, 1)
+    ~ AdjustCompassion(1)
     <i> Compassion increased </i>
     "I would go with Rez"- I say with a wink. . .
     (Wondering what kind of pathetic lousy writing this. Seriously, you just reversed Cinderella) 
-    ~ raise(matrix_awareness)
+    ~ AdjustMatrixAwareness(1)
     <i> Awareness increased </i>
     {explanation_world_2 && explanation_who_am_i :  -> barn_stint_father | -> explanation_rez}
 
     
 * "A first daughter, why you lie to me like that ? You carry yourself like a servant." I reply instinctively.
-        ~ adjust_pair(compassion, insensitivity, -1)
+        ~ AdjustInsensitivity(1)
         <i> Insensitivity increased </i>
     Rez just nods and doesn't say anything.
         {explanation_world_2 && explanation_who_am_i : -> barn_stint_father | -> explanation_rez}
 
 =explanation_world_2
-~location = "Barn in Clearport"
+~ SetLocation("Barn in Clearport")
 {explanation_who_are_u: Rez|The blonde girl} explains to you about the history of Aldarast.
 - "This is Clearport a city in Aldarast, we are humans, there was a war called the Holy Avengement war where all factions banded together to fight demons 10 years back and won. All factions..." {explanation_who_are_u: Rez |The blonde girl} spoke
 * I interrupt her, " What factions are there in this world?"
@@ -240,11 +238,11 @@ You ask her about her.
     * * "Wait, there should be more. What about centaurs and dragons etc. And furries!? "
     - - - "Oh, how do you know about them, they have not been seen after conclusion of the war, many speculate they all went extinct. And yes furries are the beast people. Prior to war they were known as Begros. The hero of HA war changed their name for some reason." {explanation_who_are_u: Rez |The blonde girl} answered, curiously wondering.
     * * * "Haha, I read it in a book"
-        ~ adjust_pair(deception, honesty, 1)
+        ~ AdjustDeception(1)
         <i> Deception increased </i>
         {explanation_who_are_u && explanation_who_am_i :  -> barn_stint_father | -> explanation_rez}
     * * * " I had a weird dream, where i heard a voice explaining me about this world"
-        ~ adjust_pair(deception, honesty, -1)
+        ~ AdjustHonesty(1)
         <i> Honesty increased </i>
         {explanation_who_are_u && explanation_who_am_i :  -> barn_stint_father | -> explanation_rez}
 
@@ -254,8 +252,8 @@ You ask her about her.
 "I mean, have you seen me before our interaction here?"
 - "Oh, I know what you mean, No. I have not met you prior to this meeting" {explanation_who_are_u: Rez|The blonde girl} answered. 
 * "I guess you can call me . . anytime"
-    <i> Dude come on! stop it, here is a redo just to keep FBI out <\i>
-    -> explanation_who_am_i
+<i> Dude come on! stop it, here is a redo just to keep FBI out <\i>
+-> explanation_who_am_i
     TODO : Add a name function link here
 * " You can call me {player_name}"
     {explanation_who_are_u && explanation_who_am_i :  -> barn_stint_father | -> explanation_rez}
@@ -289,18 +287,18 @@ How do you respond
 "You ask her what she truly desires.
     - - 'What do you mean?... I need to return to my duties. I can offer some assistance, but I have responsibilities I cannot ignore,' Rez murmurs, her eyes fixed on the rough wooden planks of the barn floor. The question takes her by surprise, leaving her momentarily speechless. No one has ever cared enough to ask her what she wants."
     * * "Then, i will show myself out. I appreaciate you for for providing me with some much needed information about this world."
-    - - - Rez nods with a smile on her face.
-    * * * "Well then, you have a good one. Cheers."
-    You get up, courteoulsy bow and walk out of the barn door.
-        - - - -Unbeknownst to you, Rez rises and tries to reach for your hand, as if pleading for you to stay with her just a little longer. An unfamiliar emotion stirs within her—a warmth, a fleeting sense of happiness she can’t quite put into words, slipping away like sand through her fingers.
-        * * * * You don't look back
-        You keep walking towards the city  {Thou_art_Awakened.i_wanna_build_a_wtf: grab a piece of cloth from clothes drying outside the barn and wrap it around like a robe. }
-        -> me_and_the_city
-        ~city_rez = false
-        * * * * You look back
-        You see Rez's hand trying to reach for yours. You grab it, and ask her. If she would be interested to accompany her and show her around. She nods, happily. Wiping her watery eyes. 
-        ~city_rez = true
-    -> me_and_the_city
+        - - - Rez nods with a smile on her face.
+        * * * "Well then, you have a good one. Cheers."
+        You get up, courteoulsy bow and walk out of the barn door.
+            - - - -Unbeknownst to you, Rez rises and tries to reach for your hand, as if pleading for you to stay with her just a little longer. An unfamiliar emotion stirs within her—a warmth, a fleeting sense of happiness she can’t quite put into words, slipping away like sand through her fingers.
+            * * * * You don't look back
+            You keep walking towards the city  {Thou_art_Awakened.i_wanna_build_a_wtf: grab a piece of cloth from clothes drying outside the barn and wrap it around like a robe. }
+            -> me_and_the_city
+            ~city_rez = false
+            * * * * You look back
+            You see Rez's hand trying to reach for yours. You grab it, and ask her. If she would be interested to accompany her and show her around. She nods, happily. Wiping her watery eyes. 
+            ~city_rez = true
+            -> me_and_the_city
 
 === me_and_the_city
 You {city_rez==true:and Rez }walk outside of the barn. {city_rez==true:You ask Rez where are we going, she asks you to just follow her, after reaching a intersection she stops and replies "We can go towards city port or go towards the Adventurer's guild or explore the market |You look around, and walk aimlessly for hours, reaching an intersection with 3 paths going in different  directions }
@@ -323,7 +321,7 @@ You decide to visit Clearport's port, hoping there must be something special abo
 -> END
 
 === fateful_encounter_2
-    The man than removes its hood smiling with eyes closed, it is a man with long beard, white hair. The hairdo looks messy but his face is vibrant and exudes of an aura. 
+The man than removes its hood smiling with eyes closed, it is a man with long beard, white hair. The hairdo looks messy but his face is vibrant and exudes of an aura. 
 - This path is under development. Any inconvenience is regretted. Peace
 * Man, fuck this shit. Cast Alt + F4
 

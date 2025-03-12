@@ -1,0 +1,42 @@
+Phase 1: Ink Refactoring (Prioritized)
+
+alpharius.ink:
+Declare External Functions: Add EXTERNAL declarations for all external functions (e.g., EXTERNAL AdjustHonesty, EXTERNAL SetLocation, etc.).
+Remove all functions and variables.
+Keep the include and call to big_bang knot.
+prologue.ink:
+Remove: All variable checks (e.g., {big_bang.sim}).
+Remove: raise() and lower() functions calls, if any.
+Call: AdjustMatrixAwareness() where appropriate.
+Refactor: Change the dialogue to fit.
+m1_Awaken.ink:
+Remove: clothes variable.
+Remove: all variable checks, like i_wanna_build_a_mage etc.
+Refactor: the dialogue to fit.
+Call: AdjustHonesty(), AdjustDeception(), AdjustCourage(), etc., where appropriate.
+Call: AdjustCompassion(), AdjustInsensitivity(), etc., where appropriate.
+Call: AdjustMatrixAwareness() where appropriate.
+Call: SetLocation() where appropriate.
+Call: Name selection logic (SetPlayerName()) in the name_selection knot.
+Remove: Functions calls, if any.
+Phase 2: UI Revamp
+
+Unity Scene:
+Update UI Elements: Add UI elements for MatrixAwareness and Location.
+Remove old Elements: Remove any UI elements that are no longer used.
+Next Button: Connect the Next button to DialogueManager.ContinueDialogue().
+Back Button: Implement the back button.
+UIManager.cs:
+Subscribe: Subscribe to onMatrixAwarenessChanged and onLocationChanged.
+Update Display: Update the UI elements with the new values.
+Update: Subscribe to the correct events, and update the ui elements correctly.
+DialogueChoiceButton:
+Refactor: Make sure this button correctly updates the UpdateChoiceIndex.
+DialogueManager.cs:
+Refactor: Add any logic required for the back button.
+Phase 3: Testing
+
+EventTester.cs:
+Update: Add methods to test AdjustMatrixAwareness() and SetLocation().
+Test all other methods.
+Playtest: Thoroughly test the game to ensure all Ink logic, external functions, and UI elements are working together seamlessly

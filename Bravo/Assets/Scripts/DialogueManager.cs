@@ -14,9 +14,54 @@ public class DialogueManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject dialoguePanel;
 
+    [Header("Dependencies")]
+    [SerializeField] private PlayerStats playerStats;
+
     private void Awake()
     {
         story = new Story(inkJSONAsset.text); // Load the Ink story
+
+        // Bind external functions for traits
+        story.BindExternalFunction("AdjustHonesty", (int delta) => {
+            playerStats.AdjustHonesty(delta);
+        });
+        story.BindExternalFunction("AdjustDeception", (int delta) => {
+            playerStats.AdjustDeception(delta);
+        });
+        story.BindExternalFunction("AdjustCourage", (int delta) => {
+            playerStats.AdjustCourage(delta);
+        });
+        story.BindExternalFunction("AdjustCaution", (int delta) => {
+            playerStats.AdjustCaution(delta);
+        });
+        story.BindExternalFunction("AdjustCompassion", (int delta) => {
+            playerStats.AdjustCompassion(delta);
+        });
+        story.BindExternalFunction("AdjustInsensitivity", (int delta) => {
+            playerStats.AdjustInsensitivity(delta);
+        });
+
+        // Bind external functions for core stats
+        story.BindExternalFunction("GainXP", (int amount) => {
+            playerStats.GainXP(amount);
+        });
+        story.BindExternalFunction("SetHealth", (int newHealth) => {
+            playerStats.SetHealth(newHealth);
+        });
+
+        // Bind external function for player name
+        story.BindExternalFunction("SetPlayerName", (string newName) => {
+            playerStats.SetPlayerName(newName);
+        });
+
+        // Bind external functions for new variables
+        story.BindExternalFunction("AdjustMatrixAwareness", (int delta) => {
+            playerStats.AdjustMatrixAwareness(delta);
+        });
+
+        story.BindExternalFunction("SetLocation", (string newLocation) => {
+            playerStats.SetLocation(newLocation);
+        });
     }
 
     private void OnEnable()
@@ -65,7 +110,7 @@ public class DialogueManager : MonoBehaviour
             }
             else return;//do nothing
         }
-        
+
         //check if there is more text
         if (story.canContinue)
         {
