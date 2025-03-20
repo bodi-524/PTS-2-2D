@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Ink.Runtime;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button[] choiceButtons;
+    [SerializeField] private Button nextButton;
+    [SerializeField] private ScrollRect dialogueScrollRect; // Reference to the Scroll Rect
 
     [Header("Player Stats UI")]
     [SerializeField] private TextMeshProUGUI playerName_disp;
@@ -16,12 +19,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI health_disp;
     [SerializeField] private TextMeshProUGUI xp_disp;
 
+    private string currentKnot = ""; // Keep track of the current knot
+
     private void OnEnable()
     {
         // Subscribe to dialogue events
         GameEventsManager.instance.dialogueEvents.OnDisplayDialogue += DisplayDialogue;
         GameEventsManager.instance.dialogueEvents.OnDialogueStarted += ShowDialoguePanel;
         GameEventsManager.instance.dialogueEvents.OnDialogueFinished += HideDialoguePanel;
+        //New
+        GameEventsManager.instance.dialogueEvents.OnKnotChanged += HandleKnotChange;
 
         // Subscribe to player events
         GameEventsManager.instance.playerEvents.onPlayerGainedXP += UpdateXPDisplay;
@@ -29,6 +36,9 @@ public class UIManager : MonoBehaviour
         //New
         GameEventsManager.instance.playerEvents.onPlayerNameChanged += UpdateNameDisplay;
         GameEventsManager.instance.playerEvents.onPlayerHealthChanged += UpdateHealthDisplay;
+
+        // Add listener to the "Next" button
+        nextButton.onClick.AddListener(NextLine);
     }
 
     private void OnDisable()
@@ -37,6 +47,8 @@ public class UIManager : MonoBehaviour
         GameEventsManager.instance.dialogueEvents.OnDisplayDialogue -= DisplayDialogue;
         GameEventsManager.instance.dialogueEvents.OnDialogueStarted -= ShowDialoguePanel;
         GameEventsManager.instance.dialogueEvents.OnDialogueFinished -= HideDialoguePanel;
+        //New
+        GameEventsManager.instance.dialogueEvents.OnKnotChanged -= HandleKnotChange;
 
         // Unsubscribe from player events
         GameEventsManager.instance.playerEvents.onPlayerGainedXP -= UpdateXPDisplay;
@@ -44,11 +56,15 @@ public class UIManager : MonoBehaviour
         //New
         GameEventsManager.instance.playerEvents.onPlayerNameChanged -= UpdateNameDisplay;
         GameEventsManager.instance.playerEvents.onPlayerHealthChanged -= UpdateHealthDisplay;
+
+        // Remove listener from the "Next" button
+        nextButton.onClick.RemoveListener(NextLine);
     }
 
     private void ShowDialoguePanel()
     {
         dialoguePanel.SetActive(true);
+        //dialogueText.text = ""; // Removed: Don't clear text here anymore
     }
 
     private void HideDialoguePanel()
@@ -56,9 +72,14 @@ public class UIManager : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
-    private void DisplayDialogue(string text, List<Ink.Runtime.Choice> choices)
+    private void DisplayDialogue(string text, List<Choice> choices)
     {
-        dialogueText.text = text;
+        // Append the new text instead of replacing it
+        dialogueText.text += text + "\n"; // Add a newline for readability
+
+        // Scroll to the bottom after adding new text
+        Canvas.ForceUpdateCanvases();
+        dialogueScrollRect.verticalNormalizedPosition = 0f; // 0 is the bottom
 
         for (int i = 0; i < choiceButtons.Length; i++)
         {
@@ -115,5 +136,21 @@ public class UIManager : MonoBehaviour
     {
         health_disp.text = $"Health: {health}";
         Debug.Log($"Player Health updated to {health}");
+    }
+
+    // New method for the "Next" button
+    public void NextLine()
+    {
+        GameEventsManager.instance.inputEvents.SubmitPressed();
+    }
+
+    // New method to handle knot changes
+    private void HandleKnotChange(string newKnot)
+    {
+        if (newKnot != currentKnot)
+        {
+            dialogueText.text = ""; // Clear the text when the knot changes
+            currentKnot = newKnot; // Update the current knot
+        }
     }
 }

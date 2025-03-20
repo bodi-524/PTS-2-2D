@@ -14,7 +14,7 @@ Post check Courage : {courage}; Caution : {caution}
 VAR clothes = ""
 
 === Thou_art_Awakened ===
-~location = "Some dark place"
+~SetLocation("Some dark place")
 TODO: Need to paraphrase to give a more fantasy feel
 You wake up surrounded by filth and husk, 
 there is a particular animal musk, a darkness surrounding you, it restricts your vision. 
@@ -44,7 +44,7 @@ You turn your gaze downwards and see you are wearing
 You sit down to look around the barn, you are just wearing boots and <>{clothes}
 What do you do next ?
 * Get up and explore the dark and unknown area
-    ~ adjust_pair(courage, caution, 1)
+    ~ AdjustCourage(1)
     <i> Courage increased </i>
     // Post check Courage : {courage}; Caution : {caution}
     -> dora_da_explora
@@ -255,12 +255,12 @@ You ask her about her.
 <i> Dude come on! stop it, here is a redo just to keep FBI out <\i>
 -> explanation_who_am_i
     TODO : Add a name function link here
-* " You can call me {player_name}"
+* " You can call me {playerName}"
     {explanation_who_are_u && explanation_who_am_i :  -> barn_stint_father | -> explanation_rez}
 
 
 === barn_stint_father ===
-- "So what do you plan to do from here on out {player_name}" - Rez enquires fondling with her hair.
+- "So what do you plan to do from here on out {playerName}" - Rez enquires fondling with her hair.
 How do you respond
 * Thank her & Leave
 " I think, I ought to leave, {Thou_art_Awakened.i_wanna_build_a_wtf:the hour is early, i can hopefully steal some clothes before people wake up} i am thankful for your help Rez. But this is where we part ways.

@@ -1,47 +1,46 @@
-/*-----------------------------------------------
+/*--------------------------------------------
 The first script of the proto version
 Last edited : 11-03-2025
 It is the starting point of story;
------------------------------------------------*/
-
+--------------------------------------------*/
 
 === big_bang ===
-~ SetLocation("Void")
+
 You open your eyes...
 You are surrounded by nothing.
 An empty void, a place where nothing exist.
 
-(1st)
 - It seems like a dream, thats when some thoughts start popping in your head
 * . . .
 -> 1st
 
-- It all started with
+- (1st)It all started with
 * my father
     
 - (opts_a1)
-    *  [I must've got my pimpin' genes from him;  the way he left my momma . . .]
+*  [I must've got my pimpin' genes from him;  the way he left my momma . . .]
+-> opts_a1
+* [But i can't remember my dad, wait wtf . .  who is my father ?]
+    - - Is this a simulation ??
+    * * Naah, thats absurd
+    ~ AdjustMatrixAwareness(-1)
+    <i> Awareness decreased </i>
     -> opts_a1
-    * [But i can't remember my dad, wait wtf . .  who is my father ?]
-        - - Is this a simulation ??
-        * * Naah, thats absurd
-        ~ AdjustMatrixAwareness(-1)
-        <i> Awareness decreased </i>
-        -> opts_a1
-        * * (sim)  [Interesting, maybe . . . ]
-        ~ AdjustMatrixAwareness(1)
-        <i> Awareness increased </i>
-        -> opts_a1
-    
-     * [How long does buying milk take, did he go on the dragon milk quest?]
-    
+    * * (sim)  [Interesting, maybe . . . ]
+    ~ AdjustMatrixAwareness(1)
+    <i> Awareness increased </i>
+    -> opts_a1
+
+ * [How long does buying milk take, did he go on the dragon milk quest?]
+
 -> fateful_encounter_1
 
 
 === fateful_encounter_1 ===
 
 = meeting_hitogami
-- Just when you were contemplating about your father's milk purchasing skills, you hear something. 
+- Just when you were contemplating about your father's milk purchasing skills, you hear something.
+~ SetLocation("Void")
 "Greeting young padowan, the force is strong within you." - Ominous voice
 * "Am i hearing shit . . . "
 -  . . .

@@ -80,3 +80,11 @@ A bit of UI revamp would be needed, still thinking about how to implement the Fi
 I would just have to code up a choice based knot and make conditionals based on variables or whatever. OR maybe i should code a script for a more generalized. 
 Proto will be skipping that and moving along with the story. 
 
+## Opposing Traits
+![](Misc/Pasted%20image%2020250312091806.png)These are the current version, added one more, they have been implemented and are part of the story, though need a bit of finetuning.
+I was thinking about the approach i should take for a seamless integration. I came across 2 approaches. 
+Approach 1 :  Start the game with player having 5 points for each morality trait and let them go along with the story. Story will put them in situations to choose and the nature of the choice will determine the changes to the traits. This is the current approach I am taking. 
+Approach 2 : Start the game with player having 0 points for each morality traits and let there be 10 questions for each opposing pair. 
+
+Initially while planned, I had the approach 2 in mind. But while implementing, I just went along with the story. The flow does not allow for there to be random insertions for each trait pair. And in my opinion approach 1 feels more refined for a natural flow of story but not balanced for a game. I mean, most of the choices are on the compassion and courage(initially). 
+Will go with the Approach 1, if I feel like. I will just superimpose Approach 2 and make it like one of those psychology survey. 

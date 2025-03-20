@@ -1,47 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Collections.Generic;
 using Ink.Runtime;
 
 public class DialogueEvents
 {
-    public event Action<string> onEnterDialogue;
     public event Action<string, List<Choice>> OnDisplayDialogue;
-    public event Action OnDialogueFinished;
     public event Action OnDialogueStarted;
-    public event Action OnNeedToChoose;
-    //new event
+    public event Action OnDialogueFinished;
     public event Action<int> onUpdateChoiceIndex;
-
-    public void EnterDialogue(string knotName)
-    {
-        if (onEnterDialogue != null) onEnterDialogue(knotName);
-    }
+    //New
+    public event Action<string> OnKnotChanged;
+    //New
+    public event Action<string> onEnterDialogue;
 
     public void DisplayDialogue(string text, List<Choice> choices)
     {
-        if (OnDisplayDialogue != null) OnDisplayDialogue(text, choices);
-    }
-
-    public void DialogueFinished()
-    {
-        if(OnDialogueFinished != null) OnDialogueFinished();
+        OnDisplayDialogue?.Invoke(text, choices);
     }
 
     public void DialogueStarted()
     {
-        if(OnDialogueStarted != null) OnDialogueStarted();
+        OnDialogueStarted?.Invoke();
     }
 
-    public void NeedToChoose()
+    public void DialogueFinished()
     {
-        if (OnNeedToChoose != null) OnNeedToChoose();
+        OnDialogueFinished?.Invoke();
     }
 
-    //New event method
     public void UpdateChoiceIndex(int choiceIndex)
     {
-        if (onUpdateChoiceIndex != null) onUpdateChoiceIndex(choiceIndex);
+        onUpdateChoiceIndex?.Invoke(choiceIndex);
+    }
+    //New
+    public void KnotChanged(string knotName)
+    {
+        OnKnotChanged?.Invoke(knotName);
+    }
+    //New
+    public void EnterDialogue(string knotName)
+    {
+        onEnterDialogue?.Invoke(knotName);
     }
 }

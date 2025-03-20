@@ -25,22 +25,21 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        //Setting the values on start
+        // Setting the values on start
         GameEventsManager.instance.playerEvents.PlayerNameChanged(PlayerName);
         GameEventsManager.instance.playerEvents.PlayerLeveledUp(Level);
         GameEventsManager.instance.playerEvents.PlayerGainedXP(XP);
         GameEventsManager.instance.playerEvents.PlayerHealthChanged(Health);
-        //Trait events
+        // Trait events
         GameEventsManager.instance.playerEvents.HonestyChanged(Honesty);
         GameEventsManager.instance.playerEvents.DeceptionChanged(Deception);
         GameEventsManager.instance.playerEvents.CourageChanged(Courage);
         GameEventsManager.instance.playerEvents.CautionChanged(Caution);
         GameEventsManager.instance.playerEvents.CompassionChanged(Compassion);
         GameEventsManager.instance.playerEvents.InsensitivityChanged(Insensitivity);
-        //Awareness and Location
+        // Awareness and Location
         GameEventsManager.instance.playerEvents.MatrixAwarenessChanged(MatrixAwareness);
         GameEventsManager.instance.playerEvents.LocationChanged(Location);
-
     }
 
     // Character Trait Methods
