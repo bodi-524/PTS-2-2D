@@ -27,7 +27,8 @@ public class EventTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(testDialogue) TestEnterDialogue(knotName);
+            // Corrected line: Call the 'Test' method instead of 'TestEnterDialogue'
+            if(testDialogue) Test(knotName);
         }
         // if (Input.GetKeyDown(KeyCode.X))
         // {
@@ -55,10 +56,7 @@ public class EventTester : MonoBehaviour
     //     playerStats.GainXP(amount);
     // }
 
-    public void Test
-    
-    
-    (string knotName)
+    public void Test(string knotName)
     {
         if (string.IsNullOrEmpty(knotName))
         {

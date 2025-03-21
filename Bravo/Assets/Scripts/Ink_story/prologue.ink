@@ -131,7 +131,7 @@ An empty void, a place where nothing exist.
     * * "Wow! there are so many factions! Can i join any of them?"
         - - -"No, but you can certainly interact with them, and form amity or animosity with them." - Ominous voice
         * * * "So, will i spawn as a slime or something?"
-        - - - - "Hmm. . . I wonder" 
+        - - - - "Hmm. . . I wonder" - Ominous voice
         ->next_alpha
         * * * "Can you explain the world to me. I skipped that."
         -> fateful_encounter_1.explanation_world

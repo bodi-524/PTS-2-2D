@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Dependencies")]
     [SerializeField] private PlayerStats playerStats;
-
+    private string lastKnot = "";
     private void Awake()
     {
         story = new Story(inkJSONAsset.text); // Load the Ink story
@@ -110,7 +110,7 @@ public class DialogueManager : MonoBehaviour
 
         // **INITIAL SYNCHRONIZATION**
         SyncPlayerStatsToInk();
-
+        GameEventsManager.instance.dialogueEvents.ClearDialogue();
         GameEventsManager.instance.dialogueEvents.DialogueStarted(); // Trigger event
         ContinueDialogue();
         // while (story.canContinue && story.currentChoices.Count == 0)
@@ -130,8 +130,6 @@ public class DialogueManager : MonoBehaviour
         story.variablesState["compassion"] = playerStats.Compassion;
         story.variablesState["insensitivity"] = playerStats.Insensitivity;
         story.variablesState["matrixAwareness"] = playerStats.MatrixAwareness;
-        // story.variablesState["location"] = playerStats.Location;
-        // Add other stats as needed
     }
 
     private void SubmitPressed()
@@ -151,6 +149,7 @@ public class DialogueManager : MonoBehaviour
                 Debug.Log($"Choosing choice: {currentChoiceIndex}");
                 story.ChooseChoiceIndex(currentChoiceIndex);
                 currentChoiceIndex = -1; // Reset choice index
+                SyncPlayerStatsToInk();
                 ContinueDialogue(); // Call ContinueDialogue again to process the choice
                 return;//stop the function after calling itself
             }
@@ -162,10 +161,7 @@ public class DialogueManager : MonoBehaviour
         //check if there is more text
         if (story.canContinue)
         {
-            //New
-            string currentKnot = story.currentPath.ToString().Split('.')[0];
-            GameEventsManager.instance.dialogueEvents.KnotChanged(currentKnot);
-
+            SyncPlayerStatsToInk();
             string dialogueLine = story.Continue();
             Debug.Log($"Dialogue: {dialogueLine}");
             GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
@@ -177,23 +173,16 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
-
-
     private void ExitDialogue()
     {
         dialoguePlaying = false;
-
-        GameEventsManager.instance.dialogueEvents.DialogueFinished(); // Trigger event
+        GameEventsManager.instance.dialogueEvents.DialogueFinished();
         Debug.Log("Dialogue ended.");
     }
 
-    //updates the choice to the last choice selected by the player
     private void UpdateChoiceIndex(int choiceIndex){
         currentChoiceIndex = choiceIndex;
     }
-
-    // New method to handle PlayerNameChanged
     private void OnPlayerNameChanged(string newName)
     {
         story.variablesState["playerName"] = newName;

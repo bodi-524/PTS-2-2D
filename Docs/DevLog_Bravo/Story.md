@@ -88,3 +88,18 @@ Approach 2 : Start the game with player having 0 points for each morality traits
 
 Initially while planned, I had the approach 2 in mind. But while implementing, I just went along with the story. The flow does not allow for there to be random insertions for each trait pair. And in my opinion approach 1 feels more refined for a natural flow of story but not balanced for a game. I mean, most of the choices are on the compassion and courage(initially). 
 Will go with the Approach 1, if I feel like. I will just superimpose Approach 2 and make it like one of those psychology survey. 
+
+
+Docs for unity ink 
+https://github.com/inkle/ink/blob/master/Documentation/RunningYourInk.md
+
+Faced some major issues with linking it with the c#. This helped. 
+
+
+Finally, some sort of basic functionality has been achieved. 
+![](Misc/Pasted%20image%2020250321141941.png)![](Misc/Pasted%20image%2020250321142029.png)The story is now displayed as an scrollable element. 
+And the choices are displayed below. 
+Much more editing is needed. But i am glad I at least achieved this much. 
+Phew!
+
+

@@ -19,23 +19,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI health_disp;
     [SerializeField] private TextMeshProUGUI xp_disp;
 
-    private string currentKnot = ""; // Keep track of the current knot
-
     private void OnEnable()
     {
         // Subscribe to dialogue events
         GameEventsManager.instance.dialogueEvents.OnDisplayDialogue += DisplayDialogue;
         GameEventsManager.instance.dialogueEvents.OnDialogueStarted += ShowDialoguePanel;
         GameEventsManager.instance.dialogueEvents.OnDialogueFinished += HideDialoguePanel;
-        //New
-        GameEventsManager.instance.dialogueEvents.OnKnotChanged += HandleKnotChange;
-
         // Subscribe to player events
         GameEventsManager.instance.playerEvents.onPlayerGainedXP += UpdateXPDisplay;
         GameEventsManager.instance.playerEvents.onPlayerLeveledUp += UpdateLevelDisplay;
         //New
         GameEventsManager.instance.playerEvents.onPlayerNameChanged += UpdateNameDisplay;
         GameEventsManager.instance.playerEvents.onPlayerHealthChanged += UpdateHealthDisplay;
+        GameEventsManager.instance.dialogueEvents.OnClearDialogue += ClearDialogue;
 
         // Add listener to the "Next" button
         nextButton.onClick.AddListener(NextLine);
@@ -47,8 +43,6 @@ public class UIManager : MonoBehaviour
         GameEventsManager.instance.dialogueEvents.OnDisplayDialogue -= DisplayDialogue;
         GameEventsManager.instance.dialogueEvents.OnDialogueStarted -= ShowDialoguePanel;
         GameEventsManager.instance.dialogueEvents.OnDialogueFinished -= HideDialoguePanel;
-        //New
-        GameEventsManager.instance.dialogueEvents.OnKnotChanged -= HandleKnotChange;
 
         // Unsubscribe from player events
         GameEventsManager.instance.playerEvents.onPlayerGainedXP -= UpdateXPDisplay;
@@ -56,6 +50,7 @@ public class UIManager : MonoBehaviour
         //New
         GameEventsManager.instance.playerEvents.onPlayerNameChanged -= UpdateNameDisplay;
         GameEventsManager.instance.playerEvents.onPlayerHealthChanged -= UpdateHealthDisplay;
+        GameEventsManager.instance.dialogueEvents.OnClearDialogue -= ClearDialogue;
 
         // Remove listener from the "Next" button
         nextButton.onClick.RemoveListener(NextLine);
@@ -70,6 +65,11 @@ public class UIManager : MonoBehaviour
     private void HideDialoguePanel()
     {
         dialoguePanel.SetActive(false);
+    }
+
+    private void ClearDialogue()
+    {
+        dialogueText.text = "";
     }
 
     private void DisplayDialogue(string text, List<Choice> choices)
@@ -144,13 +144,4 @@ public class UIManager : MonoBehaviour
         GameEventsManager.instance.inputEvents.SubmitPressed();
     }
 
-    // New method to handle knot changes
-    private void HandleKnotChange(string newKnot)
-    {
-        if (newKnot != currentKnot)
-        {
-            dialogueText.text = ""; // Clear the text when the knot changes
-            currentKnot = newKnot; // Update the current knot
-        }
-    }
 }

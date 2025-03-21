@@ -8,10 +8,9 @@ public class DialogueEvents
     public event Action OnDialogueStarted;
     public event Action OnDialogueFinished;
     public event Action<int> onUpdateChoiceIndex;
-    //New
-    public event Action<string> OnKnotChanged;
-    //New
     public event Action<string> onEnterDialogue;
+    public event Action OnClearDialogue;
+
 
     public void DisplayDialogue(string text, List<Choice> choices)
     {
@@ -32,14 +31,14 @@ public class DialogueEvents
     {
         onUpdateChoiceIndex?.Invoke(choiceIndex);
     }
-    //New
-    public void KnotChanged(string knotName)
-    {
-        OnKnotChanged?.Invoke(knotName);
-    }
-    //New
+
     public void EnterDialogue(string knotName)
     {
         onEnterDialogue?.Invoke(knotName);
+    }
+
+    public void ClearDialogue()
+    {
+        OnClearDialogue?.Invoke();
     }
 }
