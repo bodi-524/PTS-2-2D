@@ -19,6 +19,9 @@ public class PlayerStats : MonoBehaviour
     public int Compassion { get; private set; } = 5;
     public int Insensitivity { get; private set; } = 5;
     public int MatrixAwareness { get; private set; } = 0;
+    // **NEW: Honor and Greed**
+    public int Honor { get; private set; } = 5;
+    public int Greed { get; private set; } = 5;
     public string Location { get; private set; } = "Unknown";
 
     private int nextLevelXP = 50; // XP required for the next level
@@ -40,6 +43,9 @@ public class PlayerStats : MonoBehaviour
         // Awareness and Location
         GameEventsManager.instance.playerEvents.MatrixAwarenessChanged(MatrixAwareness);
         GameEventsManager.instance.playerEvents.LocationChanged(Location);
+        // **NEW: Honor and Greed Events**
+        GameEventsManager.instance.playerEvents.HonorChanged(Honor);
+        GameEventsManager.instance.playerEvents.GreedChanged(Greed);
     }
 
     // Character Trait Methods
@@ -86,6 +92,22 @@ public class PlayerStats : MonoBehaviour
     public void AdjustInsensitivity(int delta)
     {
         AdjustCompassion(-delta);
+    }
+
+    // **NEW: Honor and Greed Methods**
+    public void AdjustHonor(int delta)
+    {
+        Honor += delta;
+        Honor = Mathf.Clamp(Honor, 0, 10);
+        Greed = 10 - Honor;
+
+        GameEventsManager.instance.playerEvents.HonorChanged(Honor);
+        GameEventsManager.instance.playerEvents.GreedChanged(Greed);
+    }
+
+    public void AdjustGreed(int delta)
+    {
+        AdjustHonor(-delta);
     }
 
     // Core Stat Methods

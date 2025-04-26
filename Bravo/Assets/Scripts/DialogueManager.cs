@@ -40,6 +40,13 @@ public class DialogueManager : MonoBehaviour
         story.BindExternalFunction("AdjustInsensitivity", (int delta) => {
             playerStats.AdjustInsensitivity(delta);
         });
+        story.BindExternalFunction("AdjustGreed", (int delta) => {
+            playerStats.AdjustGreed(delta);
+        });
+        story.BindExternalFunction("AdjustHonor", (int delta) => {
+            playerStats.AdjustHonor(delta);
+        });
+        
         // Bind external functions for core stats
         story.BindExternalFunction("GainXP", (int amount) => {
             playerStats.GainXP(amount);
@@ -80,6 +87,8 @@ public class DialogueManager : MonoBehaviour
         GameEventsManager.instance.playerEvents.onCautionChanged += OnCautionChanged;
         GameEventsManager.instance.playerEvents.onCompassionChanged += OnCompassionChanged;
         GameEventsManager.instance.playerEvents.onInsensitivityChanged += OnInsensitivityChanged;
+        GameEventsManager.instance.playerEvents.onHonorChanged += OnHonorChanged;
+        GameEventsManager.instance.playerEvents.onGreedChanged += OnGreedChanged;
         GameEventsManager.instance.playerEvents.onMatrixAwarenessChanged += OnMatrixAwarenessChanged;
     }
 
@@ -97,6 +106,8 @@ public class DialogueManager : MonoBehaviour
         GameEventsManager.instance.playerEvents.onCautionChanged -= OnCautionChanged;
         GameEventsManager.instance.playerEvents.onCompassionChanged -= OnCompassionChanged;
         GameEventsManager.instance.playerEvents.onInsensitivityChanged -= OnInsensitivityChanged;
+                GameEventsManager.instance.playerEvents.onHonorChanged -= OnHonorChanged;
+        GameEventsManager.instance.playerEvents.onGreedChanged -= OnGreedChanged;
         GameEventsManager.instance.playerEvents.onMatrixAwarenessChanged -= OnMatrixAwarenessChanged;
     }
 
@@ -129,6 +140,8 @@ public class DialogueManager : MonoBehaviour
         story.variablesState["caution"] = playerStats.Caution;
         story.variablesState["compassion"] = playerStats.Compassion;
         story.variablesState["insensitivity"] = playerStats.Insensitivity;
+        story.variablesState["honor"] = playerStats.Honor;
+        story.variablesState["greed"] = playerStats.Greed;
         story.variablesState["matrixAwareness"] = playerStats.MatrixAwareness;
     }
 
@@ -206,6 +219,12 @@ public class DialogueManager : MonoBehaviour
     }
     private void OnInsensitivityChanged(int newInsensitivity){
         story.variablesState["insensitivity"] = newInsensitivity;
+    }
+    private void OnHonorChanged(int newHonor){
+        story.variablesState["honor"] = newHonor;
+    }
+    private void OnGreedChanged(int newGreed){
+        story.variablesState["greed"] = newGreed;
     }
     private void OnMatrixAwarenessChanged(int newMatrixAwareness){
         story.variablesState["matrixAwareness"] = newMatrixAwareness;

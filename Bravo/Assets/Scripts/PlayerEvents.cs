@@ -21,6 +21,10 @@ public class PlayerEvents
     public event Action<int> onMatrixAwarenessChanged;
     public event Action<string> onLocationChanged;
 
+    // **NEW: Honor and Greed Events**
+    public event Action<int> onHonorChanged;
+    public event Action<int> onGreedChanged;
+
     // Core Stat Event Call Methods
     public void PlayerGainedXP(int xp)
     {
@@ -82,5 +86,16 @@ public class PlayerEvents
     public void LocationChanged(string location)
     {
         if (onLocationChanged != null) onLocationChanged(location);
+    }
+
+    // **NEW: Honor and Greed Event Call Methods**
+    public void HonorChanged(int honor)
+    {
+        if (onHonorChanged != null) onHonorChanged(honor);
+    }
+
+    public void GreedChanged(int greed)
+    {
+        if (onGreedChanged != null) onGreedChanged(greed);
     }
 }

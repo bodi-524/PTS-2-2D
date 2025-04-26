@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button[] choiceButtons;
-    [SerializeField] private Button nextButton;
+    [SerializeField] private Button nextButton; // The "Next" button
     [SerializeField] private ScrollRect dialogueScrollRect; // Reference to the Scroll Rect
 
     [Header("Player Stats UI")]
@@ -18,6 +18,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI level_disp;
     [SerializeField] private TextMeshProUGUI health_disp;
     [SerializeField] private TextMeshProUGUI xp_disp;
+    // **NEW: Location Text**
+    [SerializeField] private TextMeshProUGUI locationText; // Reference to the location text object
+    // **NEW: Trait Texts**
+    [SerializeField] private TextMeshProUGUI honesty_disp;
+    [SerializeField] private TextMeshProUGUI deception_disp;
+    [SerializeField] private TextMeshProUGUI courage_disp;
+    [SerializeField] private TextMeshProUGUI caution_disp;
+    [SerializeField] private TextMeshProUGUI compassion_disp;
+    [SerializeField] private TextMeshProUGUI insensitivity_disp;
+    [SerializeField] private TextMeshProUGUI matrixAwareness_disp;
+    // **NEW: Honor and Greed Texts**
+    [SerializeField] private TextMeshProUGUI honor_disp;
+    [SerializeField] private TextMeshProUGUI greed_disp;
 
     private void OnEnable()
     {
@@ -25,16 +38,32 @@ public class UIManager : MonoBehaviour
         GameEventsManager.instance.dialogueEvents.OnDisplayDialogue += DisplayDialogue;
         GameEventsManager.instance.dialogueEvents.OnDialogueStarted += ShowDialoguePanel;
         GameEventsManager.instance.dialogueEvents.OnDialogueFinished += HideDialoguePanel;
+        GameEventsManager.instance.dialogueEvents.OnClearDialogue += ClearDialogue;
+
         // Subscribe to player events
         GameEventsManager.instance.playerEvents.onPlayerGainedXP += UpdateXPDisplay;
         GameEventsManager.instance.playerEvents.onPlayerLeveledUp += UpdateLevelDisplay;
-        //New
         GameEventsManager.instance.playerEvents.onPlayerNameChanged += UpdateNameDisplay;
         GameEventsManager.instance.playerEvents.onPlayerHealthChanged += UpdateHealthDisplay;
-        GameEventsManager.instance.dialogueEvents.OnClearDialogue += ClearDialogue;
+        // **NEW: Subscribe to Trait Events**
+        GameEventsManager.instance.playerEvents.onHonestyChanged += UpdateHonestyDisplay;
+        GameEventsManager.instance.playerEvents.onDeceptionChanged += UpdateDeceptionDisplay;
+        GameEventsManager.instance.playerEvents.onCourageChanged += UpdateCourageDisplay;
+        GameEventsManager.instance.playerEvents.onCautionChanged += UpdateCautionDisplay;
+        GameEventsManager.instance.playerEvents.onCompassionChanged += UpdateCompassionDisplay;
+        GameEventsManager.instance.playerEvents.onInsensitivityChanged += UpdateInsensitivityDisplay;
+        GameEventsManager.instance.playerEvents.onMatrixAwarenessChanged += UpdateMatrixAwarenessDisplay;
+        // **NEW: Subscribe to Honor and Greed Events**
+        GameEventsManager.instance.playerEvents.onHonorChanged += UpdateHonorDisplay;
+        GameEventsManager.instance.playerEvents.onGreedChanged += UpdateGreedDisplay;
+        // **NEW: Subscribe to Location Changed Event**
+        GameEventsManager.instance.playerEvents.onLocationChanged += UpdateLocationDisplay;
 
         // Add listener to the "Next" button
         nextButton.onClick.AddListener(NextLine);
+
+        // **NEW: Initialize UI with current values**
+        InitializeUI();
     }
 
     private void OnDisable()
@@ -43,23 +72,63 @@ public class UIManager : MonoBehaviour
         GameEventsManager.instance.dialogueEvents.OnDisplayDialogue -= DisplayDialogue;
         GameEventsManager.instance.dialogueEvents.OnDialogueStarted -= ShowDialoguePanel;
         GameEventsManager.instance.dialogueEvents.OnDialogueFinished -= HideDialoguePanel;
+        GameEventsManager.instance.dialogueEvents.OnClearDialogue -= ClearDialogue;
 
         // Unsubscribe from player events
         GameEventsManager.instance.playerEvents.onPlayerGainedXP -= UpdateXPDisplay;
         GameEventsManager.instance.playerEvents.onPlayerLeveledUp -= UpdateLevelDisplay;
-        //New
         GameEventsManager.instance.playerEvents.onPlayerNameChanged -= UpdateNameDisplay;
         GameEventsManager.instance.playerEvents.onPlayerHealthChanged -= UpdateHealthDisplay;
-        GameEventsManager.instance.dialogueEvents.OnClearDialogue -= ClearDialogue;
+        // **NEW: Unsubscribe from Trait Events**
+        GameEventsManager.instance.playerEvents.onHonestyChanged -= UpdateHonestyDisplay;
+        GameEventsManager.instance.playerEvents.onDeceptionChanged -= UpdateDeceptionDisplay;
+        GameEventsManager.instance.playerEvents.onCourageChanged -= UpdateCourageDisplay;
+        GameEventsManager.instance.playerEvents.onCautionChanged -= UpdateCautionDisplay;
+        GameEventsManager.instance.playerEvents.onCompassionChanged -= UpdateCompassionDisplay;
+        GameEventsManager.instance.playerEvents.onInsensitivityChanged -= UpdateInsensitivityDisplay;
+        GameEventsManager.instance.playerEvents.onMatrixAwarenessChanged -= UpdateMatrixAwarenessDisplay;
+        // **NEW: Unsubscribe from Honor and Greed Events**
+        GameEventsManager.instance.playerEvents.onHonorChanged -= UpdateHonorDisplay;
+        GameEventsManager.instance.playerEvents.onGreedChanged -= UpdateGreedDisplay;
+        // **NEW: Unsubscribe from Location Changed Event**
+        GameEventsManager.instance.playerEvents.onLocationChanged -= UpdateLocationDisplay;
 
         // Remove listener from the "Next" button
         nextButton.onClick.RemoveListener(NextLine);
     }
 
+    private void InitializeUI()
+    {
+        // Get the current values from PlayerStats
+        PlayerStats playerStats = FindObjectOfType<PlayerStats>(); // Assuming there's only one PlayerStats
+
+        if (playerStats != null)
+        {
+            UpdateXPDisplay(playerStats.XP);
+            UpdateLevelDisplay(playerStats.Level);
+            UpdateNameDisplay(playerStats.PlayerName);
+            UpdateHealthDisplay(playerStats.Health);
+            UpdateHonestyDisplay(playerStats.Honesty);
+            UpdateDeceptionDisplay(playerStats.Deception);
+            UpdateCourageDisplay(playerStats.Courage);
+            UpdateCautionDisplay(playerStats.Caution);
+            UpdateCompassionDisplay(playerStats.Compassion);
+            UpdateInsensitivityDisplay(playerStats.Insensitivity);
+            UpdateMatrixAwarenessDisplay(playerStats.MatrixAwareness);
+            // **NEW: Update Honor and Greed**
+            UpdateHonorDisplay(playerStats.Honor);
+            UpdateGreedDisplay(playerStats.Greed);
+            UpdateLocationDisplay(playerStats.Location);
+        }
+        else
+        {
+            Debug.LogError("PlayerStats not found in the scene!");
+        }
+    }
+
     private void ShowDialoguePanel()
     {
         dialoguePanel.SetActive(true);
-        //dialogueText.text = ""; // Removed: Don't clear text here anymore
     }
 
     private void HideDialoguePanel()
@@ -80,6 +149,16 @@ public class UIManager : MonoBehaviour
         // Scroll to the bottom after adding new text
         Canvas.ForceUpdateCanvases();
         dialogueScrollRect.verticalNormalizedPosition = 0f; // 0 is the bottom
+
+        // **NEW CODE: Hide/Show "Next" Button**
+        if (choices.Count > 0)
+        {
+            nextButton.gameObject.SetActive(false); // Hide "Next" button
+        }
+        else
+        {
+            nextButton.gameObject.SetActive(true);  // Show "Next" button
+        }
 
         for (int i = 0; i < choiceButtons.Length; i++)
         {
@@ -125,7 +204,7 @@ public class UIManager : MonoBehaviour
         level_disp.text = $"Level: {level}";
         Debug.Log($"Player Level updated to {level}");
     }
-    //New methods
+
     public void UpdateNameDisplay(string name)
     {
         playerName_disp.text = $"Name: {name}";
@@ -144,4 +223,136 @@ public class UIManager : MonoBehaviour
         GameEventsManager.instance.inputEvents.SubmitPressed();
     }
 
+    // **NEW: Update Location Display**
+    public void UpdateLocationDisplay(string location)
+    {
+        if (locationText != null)
+        {
+            locationText.text = $"Location: {location}";
+            Debug.Log($"Player Location updated to {location}");
+        }
+        else
+        {
+            Debug.LogError("Location Text object is not assigned in UIManager!");
+        }
+    }
+
+    // **NEW: Update Trait Displays**
+    public void UpdateHonestyDisplay(int honesty)
+    {
+        if (honesty_disp != null)
+        {
+            honesty_disp.text = $"Honesty: {honesty}";
+            Debug.Log($"Player Honesty updated to {honesty}");
+        }
+        else
+        {
+            Debug.LogError("Honesty Text object is not assigned in UIManager!");
+        }
+    }
+
+    public void UpdateDeceptionDisplay(int deception)
+    {
+        if (deception_disp != null)
+        {
+            deception_disp.text = $"Deception: {deception}";
+            Debug.Log($"Player Deception updated to {deception}");
+        }
+        else
+        {
+            Debug.LogError("Deception Text object is not assigned in UIManager!");
+        }
+    }
+
+    public void UpdateCourageDisplay(int courage)
+    {
+        if (courage_disp != null)
+        {
+            courage_disp.text = $"Courage: {courage}";
+            Debug.Log($"Player Courage updated to {courage}");
+        }
+        else
+        {
+            Debug.LogError("Courage Text object is not assigned in UIManager!");
+        }
+    }
+
+    public void UpdateCautionDisplay(int caution)
+    {
+        if (caution_disp != null)
+        {
+            caution_disp.text = $"Caution: {caution}";
+            Debug.Log($"Player Caution updated to {caution}");
+        }
+        else
+        {
+            Debug.LogError("Caution Text object is not assigned in UIManager!");
+        }
+    }
+
+    public void UpdateCompassionDisplay(int compassion)
+    {
+        if (compassion_disp != null)
+        {
+            compassion_disp.text = $"Compassion: {compassion}";
+            Debug.Log($"Player Compassion updated to {compassion}");
+        }
+        else
+        {
+            Debug.LogError("Compassion Text object is not assigned in UIManager!");
+        }
+    }
+
+    public void UpdateInsensitivityDisplay(int insensitivity)
+    {
+        if (insensitivity_disp != null)
+        {
+            insensitivity_disp.text = $"Insensitivity: {insensitivity}";
+            Debug.Log($"Player Insensitivity updated to {insensitivity}");
+        }
+        else
+        {
+            Debug.LogError("Insensitivity Text object is not assigned in UIManager!");
+        }
+    }
+
+    public void UpdateMatrixAwarenessDisplay(int matrixAwareness)
+    {
+        if (matrixAwareness_disp != null)
+        {
+            matrixAwareness_disp.text = $"Aware: {matrixAwareness}";
+            Debug.Log($"Player Matrix Awareness updated to {matrixAwareness}");
+        }
+        else
+        {
+            Debug.LogError("Matrix Awareness Text object is not assigned in UIManager!");
+        }
+    }
+
+    // **NEW: Update Honor and Greed Displays**
+    public void UpdateHonorDisplay(int honor)
+    {
+        if (honor_disp != null)
+        {
+            honor_disp.text = $"Honor: {honor}";
+            Debug.Log($"Player Honor updated to {honor}");
+        }
+        else
+        {
+            Debug.LogError("Honor Text object is not assigned in UIManager!");
+        }
+    }
+
+    public void UpdateGreedDisplay(int greed)
+    {
+        if (greed_disp != null)
+        {
+            greed_disp.text = $"Greed: {greed}";
+            Debug.Log($"Player Greed updated to {greed}");
+        }
+        else
+        {
+            Debug.LogError("Greed Text object is not assigned in UIManager!");
+        }
+    }
 }

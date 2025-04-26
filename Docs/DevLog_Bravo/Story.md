@@ -102,4 +102,36 @@ And the choices are displayed below.
 Much more editing is needed. But i am glad I at least achieved this much. 
 Phew!
 
+30 March
+The code is working fine( some basic debugging), will do some qol feature additions like type writer effect. There is a need for uniformity for trait selection too. Currently it is 
 
+| Sr. No. | Traits +ve | Max | Traits -ve    | Max |
+| ------- | ---------- | --- | ------------- | --- |
+| 1       | Honesty    | 3   | Deception     | 4   |
+| 2       | Compassion | 3   | Insensitivity | 4   |
+| 3       | Honor      | 1   | Greed         | 1   |
+| 4       | Courage    | 3   | Cautiousness  | 2   |
+| 5       | Aware +ve  | 4   | Aware -ve     | 2   |
+
+So I need all of them to be 5 ideally. Now i can adjust it in the next episode. Or I can force some changes in the narrative to . . . 
+"What can be done tomorrow should be done tomorrow" 
+
+I will state the next tasks. There is a need to separate the stages into episodes, currently the  first mission is a bit too long, and the story proceeds with multiple scenes, so I will divide it into 2 episodes. The nomenclature is not yet decided, but I think episodes make more sense. 
+
+Also, I decided some sort of color coding for the specific words. I felt it to be more generic. I got a pallete for this https://lospec.com/palette-list/island-joy-16. But the thing is, it was not looking great. So i changed them. And it was still not visible, do added 0.1 px outline for the text. It looks okay. 
+The current background is just a placeholder, So, i think i need to start using some assets into the project as well. 
+
+| Sr. No. | Description                 | Colour code                                                    |
+| ------- | --------------------------- | -------------------------------------------------------------- |
+| 1       | Positive Morality <br>Trait | <big><span style="color: #6BFF6E;">■</span></big><br>\#6BFF6E  |
+| 2       | Negative Morality <br>Trait | <big><span style="color: #FC567A;">■</span></big> <br>\#FC567A |
+| 3       | Location                    | <big><span style="color:#4DE1FF;">■</span> </big><br>\#4DE1FF  |
+| 4       | Weapons                     | <big><span style="color:#7C66FF;">■</span></big> <br>\#7C66FF  |
+| 5       | Charismatic interactions    | <big><span style="color:#FFE75C;">■</span> </big><br>\#FFE75C  |
+| 6       | Fights                      | <big><span style="color:#FF3885;">■</span></big> <br>\#FF3885  |
+| 7       | Foreshadowing               | <big><span style="color:#F082FF;">■</span></big> <br>\#F082FF  |
+| 8       | Ominous voice               | <big><span style="color:#8FB8FF;">■</span> </big><br>\#8FB8FF  |
+| 9       | Writer                      | <big><span style="color:#F59D67;">■</span> </big><br>\#F59D67  |
+I used functions in ink directly to introduce colour coding, I think it was genius because if one colour doesn't strike as good, I can just change it in the function. 
+
+There is also a need for clearing the story, since the current one just keeps on going in the text box, i made it scrollable. 

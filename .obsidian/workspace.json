@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Story"
             }
+          },
+          {
+            "id": "6f35d3282df7fc04",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Docs/DevLog_Bravo/Code - Phase 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Code - Phase 2"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -168,34 +183,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "791e7ba1a794da89",
+  "active": "6f35d3282df7fc04",
   "lastOpenFiles": [
+    "Docs/DevLog_Bravo/Misc/Pasted image 20250426204932.png",
+    "Docs/DevLog_Bravo/Misc/homescreen.png",
+    "Docs/DevLog_Bravo/Story.md",
+    "Docs/DevLog_Bravo/User Interface.md",
+    "Docs/DevLog_Bravo/Code - Phase 2.md",
+    "Bravo/Temp/ProcessJobs",
+    "Bravo/Temp/Burst/burst-aoto3hahvew.uit",
+    "Bravo/Temp/Burst/burst-aottcy1vhyl.668",
+    "Bravo/Temp/Burst/burst-aot27420p40.6g8",
+    "Bravo/Temp/Burst/burst-aotcbnts5m0.ead",
+    "Bravo/Temp/Burst/burst-aotubjw2077.9jv",
+    "Bravo/Temp/Burst/burst-aot825sop48.zxn",
+    "Bravo/Temp/Burst/burst-aot8nb1mvy8.czn",
+    "Bravo/Temp/Burst/burst-aotk29s9n8p.wo8",
+    "Bravo/Temp/Burst/burst-aotall4hust.joj",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250321142029.png",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250321141941.png",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250312091806.png",
     "Docs/DevLog_Bravo/Code - Phase 1.md",
-    "Docs/DevLog_Bravo/Story.md",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250305155028.png",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250305154935.png",
     "README.md",
-    "Docs/DevLog_Bravo/Code - Phase 2.md",
     "Docs/DevLog_Bravo/Misc/Always-be-kind-to-the-ducks-because-they-will-have-the-last-quack.jpg",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250302204606.png",
-    "Bravo/UserSettings/Layouts/CurrentMaximizeLayout.dwlt",
-    "Bravo/Temp/UnityTempFile-fe0b3de6a679c8e4c83760f8e9a2700d",
-    "Bravo/Temp/UnityTempFile-9ac8c6ff8e167434ba38db488a881ee1",
-    "Docs/MacroDesignDocumentBravo.pdf",
-    "Docs/DevLog_Bravo/User Interface.md",
-    "Bravo/Temp/UnityTempFile-999d1fa721a4b45409e5cc3cdf6660f0",
-    "Bravo/Temp/UnityTempFile-552d60c4d4169db4e889febf64591027",
-    "Bravo/Temp/ADB-Refresh8cf5b904d50033741982d180de353517",
-    "Bravo/Library/Search/propertyAliases.db_6d936b605d7d4ee9ad2dc3bf23b731e5_temp",
-    "Bravo/Library/Artifacts/dc/dc905fcb71fafd451b12222ba05026e7",
-    "Bravo/Library/TempArtifacts/Extra/0554ef61b3a3dae4eb46595e9a1e551d.3.index",
     "Docs/DevLog_Bravo/Misc/Pasted image 20250226091736.png",
     "Bravo/Assets/Images/Space_Background1.png",
-    "Bravo/Assets/Images/Space_Background4.png",
-    "Bravo/Assets/Images/Space_Background3.png",
     "Bravo/Assets/Ink/CHANGELOG.md",
     "Docs/DevLog_Bravo/Misc/Tutorial notes.md",
     "Misc/Pasted image 20250221164934.png.md",
